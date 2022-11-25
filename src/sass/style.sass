@@ -1,4 +1,23 @@
-*, ::after, ::before                                 
+$color-grey: #777777
+$color-white: #FAFAFA
+$color-brown-light: #BA8554
+$color-brown-darck: #A14F03
+$color-black: #000000
+
+$box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.2))
+
+@mixin style-link ($color)
+	display: inline-block
+	text-transform: uppercase
+	text-decoration: none
+	color: $color
+
+// В этом блоке мы создаем миксин , данное свойство работает как переменные , только в миксин мы можем добавить конкретный код далее по всему нашему сайту этот код переиспользовать где нам нужно, в данный момент мы создаем миксин с помощу команды @mixin (название нашего миксина) - для наших ссылок. Например мы знаем что у нас ссылки на нашем сайте всегда будут 1 - Инлайн блочным элиментом 2 - Что они будут всегда заглавными 3 - Убераем декорирование ссылок 4 - Цвет текста - Добавляем эти свойства и дальше образаемся к блоку к которому мы хотим присвоить наш миксин в нашем случае это кнопка .btn , обращаемся к данному классу прописывавем свойство @include (Название нашего миксина) и все работает!
+
+// Мы имеем возвожность в миксины добавлять оприделеные аргументы - (@mixin название миксина ($ название аргумент)) - Значение  Аргумента указывается в том месте где мы задаем мексин (в нашем случае мы применяем наш миксин на кнопке)- Мы указываем уже не название Агумента, а именно значение свойства которое мы Аргументируем в нашем случае мы задали аргумент на свойство  color: $color - (название нашего аргумента в миксине) , назвали аргумент ($color) рядом с названим миксина, далее пошли в нашу кнопку где мы применяем наш миксин и задаем цвет нашего текста таким образом @include style-link($color-grey)! - Этот способ позволяет более гибко использовать миксины.
+
+		
+	*, ::after, ::before                                 
 	margin: 0
 	padding: 0
 	box-sizing: border-box
@@ -14,18 +33,18 @@ body
 	font-size: 1.6rem
 	letter-spacing: .2rem
 	padding: 5rem
-	background-color: white
+	background-color: $color-white
 
 	// Тут устанавливем шрифт и рамку в 50 пиксилей вокруг нашего сайта
 
 .container
-	background-color: #F7F7F7
+	background-color: $color-white
 // Задаем цвет фона сайта
 
 .header
 	position: relative
 	height: 95vh
-	background: linear-gradient(90deg, rgba(186, 133, 84, 0.7) 0.03%, rgba(1, 1, 1, 0.7) 99.94%), url(../img/header_bg.jpg) center / cover no-repeat 
+	background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-black, 0.7) 99.94%), url(../img/header_bg.jpg) center / cover no-repeat 
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 80%)
 	//1 )Здесь задаем ширину видимого экрана 2)Вставляем градиент с макета далее подключаем фото , делаем по центру , делаем шоб не повторялось 3) Задаем свойство clip-path: для того что бы сделать наше фото фона на искось как в макете для этого используем сайт https://bennettfeely.com/clippy/  
 	&__logo
@@ -46,7 +65,7 @@ body
 // В этом блоке мы центрируем наш заголовок , для начала задаем апсолютную позицию нашему заголовку что бы мы могли отталкиваться от нашего контейнера , после задаем сверху и слева по 50% для того что бы заголовок был гибким , но это не центрирует наш заголвок по центру для этого нам нужно еще убрать 50%X от ширины и 50%Y от высоты нашего __box контейнера, делаем это с помощу свойства transform: translate , далее для того что бы наш заголовок был на всю ширину то задаем ему свойство width: 100% и свойством text-align: center центрируем наш заголовок
 	 
 .title-first
-	color: #ffffff
+	color: $color-white
 	&__main
 		display: block
 		font-weight: 800
@@ -76,25 +95,23 @@ body
 
 .btn
 	&:link, &:visited
-		text-transform: uppercase
-		text-decoration: none
-		color: #777777
+		@include style-link($color-grey)
+		//Наш первый миксин
 		padding: 1.5rem 4rem
-		background: white
+		background: $color-white
 		border-radius: 5rem
-		display: inline-block
 		transition: all .3s
 		position: relative
 		font-size: 2rem
 	&:hover
-		transform: translateY(-4px)
-		box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.4))
+		transform: translateY(-.4rem)
+		box-shadow: $box-shadow
 		&::after 
 			opacity: 0
 			transform: scaleX(1.5) scaleY(1.7)
 	&:active
-		transform: translateY(-2px)
-		box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.2))
+		transform: translateY(-.2rem)
+		box-shadow: $box-shadow
 	&::after
 		content: ""
 		background: white
@@ -122,7 +139,7 @@ body
 		
 	100%
 		opacity: 1
-		transform: translateY(0px)	
+		transform: translateY(0)	
 
 
 
@@ -136,7 +153,7 @@ body
 		
 	100%
 		opacity: 1
-		transform: translateX(0px)
+		transform: translateX(0)
 
 @keyframes rightToLeft
 	0%
@@ -147,7 +164,7 @@ body
 		
 	100%
 		opacity: 1
-		transform: translateX(0px)
+		transform: translateX(0)
 
 // @keyframes  ключевое слово для созданния анимациии, после задаем имя анимации , далее прописываем ключевые точки , на каких процентах будет проходить то или иное действие , мы можем затавать точки от 0 до 100 % их может быть сколько угодно , в нутри кажной точки мы должны прописать действие анимации, например ( на первой точке задаем значение opacity: 0 и на последней  opacity: 1 ) дальше берем наше имя анимации и применяем к нашему заголовку свойством animation-name: leftToRight //Определяет имя @keyframes, настраивающего кадры анимации. Далее animation-duration: 4s Определяет время, в течение которого должен пройти один цикл.И свойством анимацииanimation-delay: 0.1s Настраивает задержку между временем загрузки элемента и временем начала анимации дальеш по желанию настраиваем плавность  animation-timing-function: ease Настраивает ускорение анимации. При обновлении страници наш заголовок сперва не видимый и потом на 4 секунде становится полностю видимый, дальше мы можем заставить наш заголовок двигаться с лева на право или сверху в низу и на оборот используя свойство transform: translateX или transform: translateY больще можно узнать на сайте https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/Using_CSS_anima. Кажен раз когда мы создаем и используем анимацию нам нужно ее оптимизировать нашу анимацию по тому что очень часто бываю сбои, оптимизируем  свойством backface-visibility  которое определяет, видно ли заднюю грань элемента, когда он повёрнут к пользователю. Это свойство имет два значения visible - Задняя сторона видна, когда повёрнута к пользователю. hidden - Задняя поверхность скрыта, что делает элемент невидимым, когда он повёрнутый от пользователя. 
 
