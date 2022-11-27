@@ -1,0 +1,38 @@
+// Тут устанавливем шрифт, начертание , розмер и цвет нашего шрифта
+	
+body
+	font-family: "Lato", sans-serif
+	font-weight: 400
+	color: #777777
+	font-size: 1.6rem
+	letter-spacing: .2rem
+
+// В этом блоке мы стализуем наш заголовок первого уровня, задаем цевет , ширину , начертание. шрифт и тд. а также делаем их блочнымэлиментами для того что бы кажен элимент находился на своей строке делаем это из-за того что span строчный элимент и он не переноситсна другую строку . А также делаем отступ от первого элимента span на 10 пиксилей. Дальше настраиваем анимацию для нашего заголовка После свойстом margin-bottom: 5rem мы отодвигаем нашу кнопку(НАШ КАТАЛОГ) от нашего элимента title-first__secondary
+	
+.title-first
+	color: $color-white
+	&__main
+		display: block
+		font-weight: 800
+		font-size: 5rem
+		line-height: 6rem
+		letter-spacing: 1rem
+		text-transform: uppercase
+		margin-bottom: 1rem
+		animation-name: leftToRight //Определяет имя @keyframes, настраивающего кадры анимации.
+		animation-duration: 1.7s //Определяет время, в течение которого должен пройти один цикл анимации.
+		animation-delay: 0.1s // Настраивает задержку между временем загрузки элемента и временем начала анимации.
+		animation-timing-function: ease //Настраивает ускорение анимации.
+		backface-visibility: hidden //Задняя поверхность скрыта, что делает элемент невидимым, когда он повёрнутый от пользователя.
+	&__secondary
+		display: block
+		font-weight: 100
+		font-size: 4rem
+		line-height: 4.8rem
+		letter-spacing: .8rem
+		animation-name: rightToLeft
+		animation-duration: 1.7s
+		animation-delay: 0.1s
+		animation-timing-function: ease
+		backface-visibility: hidden
+		margin-bottom: 6.5rem
