@@ -4,7 +4,7 @@ body
 	font-family: "Lato", sans-serif
 	font-weight: 400
 	color: #777777
-	font-size: 1.6rem
+	font-size: $font-size-paragraph
 	letter-spacing: .2rem
 
 // В этом блоке мы стализуем наш заголовок первого уровня, задаем цевет , ширину , начертание. шрифт и тд. а также делаем их блочнымэлиментами для того что бы кажен элимент находился на своей строке делаем это из-за того что span строчный элимент и он не переноситсна другую строку . А также делаем отступ от первого элимента span на 10 пиксилей. Дальше настраиваем анимацию для нашего заголовка После свойстом margin-bottom: 5rem мы отодвигаем нашу кнопку(НАШ КАТАЛОГ) от нашего элимента title-first__secondary
@@ -36,3 +36,32 @@ body
 		animation-timing-function: ease
 		backface-visibility: hidden
 		margin-bottom: 6.5rem
+
+// В данном блоке мы создаем стиализацию заголовка второго уровня, 1) Мы делаем наш заголовок инлайн блочным элиментом, и ровняем его по центру с помощу класса text-aling-center который мы задали нашому заголовку и задали ему свойства центрирования по центру с помощу файла _utilites. 2) Задаем толщину нашего шрифта. 3) Определяем межбуквенное расстояние в тексте.. 4) Делаем текс вверхнем регистре. 5) Устанавливаем начертание шрифта. 6) Подключаем наш градиент с макета. 7) Определяем как цвет фона  будет выводиться под границами блока. 8) Задаем прозрачность для нашего текста. 9) Создаем анимацию для нашего заголовка (При наведении должна появлятся тень и текст должен скручиваться) Используем наш псевдо класс &:hover дале задаем к свойство трансформ  (transform) со значениям скручивания (skew) по X и Y и задаем значение scale (для увелечения текста), далее добавляем тень с макета свойством (text-shadow) пользуясь перемеными. После перед нащим псевдоклассом задаем свойство transition - для плавности нашей анимации. 10 ) Так же добавляем свойство (backface-visibility: hidden) для того что бы убрать глюки работы анимации.
+
+.title-secondary
+	display: inline-block
+	font-size: $font-size-paragraph-h2
+	letter-spacing: 1rem
+	text-transform: uppercase
+	font-weight: 800
+	background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-brown-dark, 0.7) 99.94%)
+	-webkit-background-clip: text
+	color: transparent
+	transition : all .4s
+	backface-visibility: hidden
+	&:hover 
+		transform: skewY(2deg) skewX(15deg) scale(1.1)
+		text-shadow: $shadow-h2
+
+.title-third
+	font-size: $font-size-paragraph-h3
+	letter-spacing: .2rem
+	text-transform: uppercase
+	font-weight: 700
+
+.paragraf-about
+	font-size: $font-size-paragraph
+	letter-spacing: 0.2rem
+	line-height: 140%
+	font-weight: 400
