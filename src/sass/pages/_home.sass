@@ -2,3 +2,15 @@
 .section-about
 	padding-top: 8rem
 
+.section-adventure
+	padding: 21rem 0
+	background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-black, 0.7) 99.94%), url(../img/section-adventure.jpg) center / cover no-repeat 
+	transform: skewY(7deg)
+	& > *
+		transform: skewY(-7deg)
+
+// В данной секции мы стеализуем третий блок нашего сайта, мы задаем внутриний оступ, добавляем фоновое изображение , и делаем его наискось как на макете используя свойство transform, далее мы через амперсант по селектору обращаемся ко всем элиментам в данном блоке и делаем отмену нашего свойста transform так как он изначально был задан на фон и все элименты внутри нашего блока, а нам нужн только зделать так что бы было на фон. для этого мы дадаем такое же свойство только с отрицательным значением
+
+.section-tour
+	padding-top: 21rem
+
