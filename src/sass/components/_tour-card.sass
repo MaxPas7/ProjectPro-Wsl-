@@ -1,10 +1,10 @@
-.card-tour 
+.card-tour
 	height: 50rem
 	perspective: 150rem
 	-moz-perspective: 150rem
 	position: relative
-	
-	&__side
+
+	&__side // Добавляем анимацию карточке, она будет при наведении поварачиватся на 180 градусов и с двух сторон у нас будет разная инфо. 
 		height: 50rem
 		transition: .7s all ease-out
 		color: $color-white
@@ -29,7 +29,7 @@
 	&:hover &__side_back
 		transform: rotateY(0deg)
 
-	&__img
+	&__img // Фронтальная сторона карточки  Добавляем изображения ко всем карточкам с наложением эфекта (hard-light - Направленный свет)
 		background-blend-mode: hard-light
 		height: 21rem 
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
@@ -39,7 +39,7 @@
 			background: $color-brown-light url(../img/card-2.jpg) center / cover no-repeat
 		&_3
 			background: $color-brown-light url(../img/card-3.jpg) center / cover no-repeat
-	&__title
+	&__title // Стилизуем заголовки карточек
 		font-size: 2.8rem
 		letter-spacing: .2rem
 		font-weight: 300
@@ -58,7 +58,7 @@
 			right: 0rem
 			padding-bottom: 1rem
 			padding-top: 0rem
-	&__descr
+	&__descr  // Стилизуем списки карточек
 		ul
 			list-style: none
 			margin: 0 auto
@@ -73,12 +73,12 @@
 				&:not(:last-child)
 					margin-bottom: 2rem
 
-	&__backSide-box
+	&__backSide-box // Знадняя сторона карточки - Центрируем элименты 
 		position: absolute
 		top: 50%
 		left: 50%
 		transform: translate(-50%, -50%)
-	&__text
+	&__text // Стилизуем все элименты карточки 
 		margin-bottom: 8rem
 		letter-spacing: .2rem
 		text-transform: uppercase
@@ -92,6 +92,6 @@
 			font-weight: 500
 			
 
-//В данной секции мы создали двух сторонюю Карточку для четвертого блока нашего стайта (НАИБОЛЕЕ ПОПУЛЯРНЫЕ ТУРЫ)  - которая вращается при наведении на 180 градусов , используя новое свойство для плавности нашей анимации (perspective) больше об этом свойстве на сайте https://webformyself.com/kak-rabotaet-css-perspective/ , далее в данной секции мы использовали все ранее нам извесные свойства для создания анимации, позиционирования и тд.
+//В данной секции мы создали двух сторонюю Карточку для третего блока нашего стайта (НАИБОЛЕЕ ПОПУЛЯРНЫЕ ТУРЫ)  - которая вращается при наведении на 180 градусов , используя новое  Свойство CSS perspective оно определяет расcтояние между плоскостью z = 0 и пользователем для того чтобы придать 3D-позиционируемому элементу эффект переспективы. Каждый трансформируемый элемент с z > 0 станет больше, с z < 0 соответственно меньше. больше об этом свойстве на сайте https://webformyself.com/kak-rabotaet-css-perspective/ , далее в данной секции мы использовали все ранее нам извесные свойства для создания анимации, позиционирования,центрирования и стилизации элиментов тд.
 
 

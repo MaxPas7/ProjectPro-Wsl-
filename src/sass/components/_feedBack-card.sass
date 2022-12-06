@@ -1,0 +1,45 @@
+.feedBack-card // Стилизуем карточки отзывов клиентов 
+	width: 85%
+	background: rgba($color-white, 0.75)
+	box-shadow: $box-shadow
+	margin: 0 auto
+	padding: 6rem
+	transform: skewX(330deg)
+	position: relative
+	& >  * 
+		transform: skewX(-330deg)
+	&__img // Стилизуем изображения клиента, а так же сам отзыв внутри карточек
+		width: 15rem
+		height: 15rem
+		float: left
+		border-radius: 100rem
+		background: red
+		shape-outside: circle(50% at 50% 50%)
+		-webkit-shape-outside: circle(50% at 50% 50%)
+		margin-right: 4rem
+		overflow: hidden
+		position: relative
+		img
+			height: 100%
+			transform: scale(1.2)
+			transition: all .5s 
+	&__name
+		font-size: 2rem
+		letter-spacing: .2rem
+		font-weight: 400
+		text-align: center
+		color: $color-white
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -20%)
+		opacity: 0
+		transition: all .5s
+	&:hover &__name
+		transform: translate(-50%, -50%)
+		opacity: 1
+	&:hover img
+		transform: scale(1)
+		filter: blur(.3rem) brightness(70%)
+
+// В данном блоке мы стилизуем четвертую секцию сайта. Делаем карточки отзывов клиентов , далая  это с помощу извесных нам свойст , так же добавим анимацию для изображений при наведении на карточку (Изображение будет уменьшаться , брюлится и поверх будет появляться имя, фамилия человека который находится на изображении), а так же используем два новых свойства (shape-outside) - Свойство CSS определяет форму, которая может быть непрямоугольной, вокруг которой должно оборачиваться смежное встроенное содержимое. По умолчанию встроенный контент обтекает поле поля; предоставляет способ настройки этого обтекания, позволяя обтекать текст вокруг сложных объектов, а не простых блоков. Больше - https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside и свойство (filter) - CSS свойство filter позволяет вам применять к элементу такие графические эффекты, как размытие и смещение цвета. Фильтры обычно используются для регулировки рендеринга изображений, фонов и рамок. Больше об этом свойстве на - https://developer.mozilla.org/ru/docs/Web/CSS/filter
